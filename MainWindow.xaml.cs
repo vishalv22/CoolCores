@@ -1,22 +1,11 @@
+using CoolCores.Pages;
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
-using Microsoft.UI.Windowing;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Graphics;
 using Windows.UI;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
 
 namespace CoolCores
 {
@@ -25,10 +14,20 @@ namespace CoolCores
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        private readonly Dictionary<string, Type> _pages = new(StringComparer.OrdinalIgnoreCase)
+        {
+            ["system"] = typeof(SystemPage),
+            ["performance"] = typeof(PerformancePage),
+            ["ai"] = typeof(AiPage),
+            ["settings"] = typeof(SettingsPage)
+        };
+
         public MainWindow()
         {
             InitializeComponent();
+            ConfigureDefaultWindowSize();
             ConfigureTitleBar();
+            InitializeNavigation();
         }
 
         private void ConfigureTitleBar()
@@ -59,6 +58,57 @@ namespace CoolCores
             titleBar.ButtonPressedForegroundColor = foreground;
             titleBar.ButtonInactiveBackgroundColor = darkBackground;
             titleBar.ButtonInactiveForegroundColor = inactiveForeground;
+        }
+
+        private void ConfigureDefaultWindowSize()
+        {
+            const double scale = 0.7;
+            SizeInt32 currentSize = AppWindow.Size;
+
+            int width = Math.Max(1, (int)Math.Round(currentSize.Width * scale));
+            int height = Math.Max(1, (int)Math.Round(currentSize.Height * scale));
+
+            AppWindow.Resize(new SizeInt32(width, height));
+        }
+
+        private void InitializeNavigation()
+        {
+            if (AppNavigationView.MenuItems.Count == 0)
+            {
+                return;
+            }
+
+            AppNavigationView.SelectedItem = AppNavigationView.MenuItems[0];
+            NavigateToPage("system");
+        }
+
+        private void AppNavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            if (args.IsSettingsSelected)
+            {
+                NavigateToPage("settings");
+                return;
+            }
+
+            if (args.SelectedItemContainer?.Tag is string tag)
+            {
+                NavigateToPage(tag);
+            }
+        }
+
+        private void NavigateToPage(string pageKey)
+        {
+            if (!_pages.TryGetValue(pageKey, out Type? pageType))
+            {
+                return;
+            }
+
+            if (ContentFrame.CurrentSourcePageType == pageType)
+            {
+                return;
+            }
+
+            ContentFrame.Navigate(pageType);
         }
     }
 }
