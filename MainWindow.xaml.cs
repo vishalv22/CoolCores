@@ -69,6 +69,14 @@ namespace CoolCores
             int height = Math.Max(1, (int)Math.Round(currentSize.Height * scale));
 
             AppWindow.Resize(new SizeInt32(width, height));
+
+            DisplayArea displayArea = DisplayArea.GetFromWindowId(AppWindow.Id, DisplayAreaFallback.Primary);
+            RectInt32 workArea = displayArea.WorkArea;
+
+            int centeredX = workArea.X + Math.Max(0, (workArea.Width - width) / 2);
+            int centeredY = workArea.Y + Math.Max(0, (workArea.Height - height) / 2);
+
+            AppWindow.Move(new PointInt32(centeredX, centeredY));
         }
 
         private void InitializeNavigation()

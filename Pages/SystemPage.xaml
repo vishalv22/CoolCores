@@ -22,28 +22,41 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="0" Grid.Column="0"><TextBlock Text="Card 1" /></Border>
+            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="0" Grid.Column="0">
+                <StackPanel Spacing="12">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE950;" />
+                        <TextBlock Text="Processor"
+                                   FontSize="16"
+                                   FontWeight="Normal" />
+                    </StackPanel>
+                    <TextBlock x:Name="ProcessorNameTextBlock"
+                               Text="Loading..."
+                               TextWrapping="WrapWholeWords"
+                               Foreground="#FFD1D1D1" />
+                </StackPanel>
+            </Border>
             <Border Style="{StaticResource SystemCardStyle}" Grid.Row="0" Grid.Column="1"><TextBlock Text="Card 2" /></Border>
             <Border Style="{StaticResource SystemCardStyle}" Grid.Row="0" Grid.Column="2"><TextBlock Text="Card 3" /></Border>
-            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="0" Grid.Column="3"><TextBlock Text="Card 4" /></Border>
+            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="1" Grid.Column="0"><TextBlock Text="Card 4" /></Border>
 
-            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="1" Grid.Column="0"><TextBlock Text="Card 5" /></Border>
-            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="1" Grid.Column="1"><TextBlock Text="Card 6" /></Border>
-            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="1" Grid.Column="2"><TextBlock Text="Card 7" /></Border>
-            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="1" Grid.Column="3"><TextBlock Text="Card 8" /></Border>
+            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="1" Grid.Column="1"><TextBlock Text="Card 5" /></Border>
+            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="1" Grid.Column="2"><TextBlock Text="Card 6" /></Border>
+            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="2" Grid.Column="0"><TextBlock Text="Card 7" /></Border>
 
-            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="2" Grid.Column="0"><TextBlock Text="Card 9" /></Border>
-            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="2" Grid.Column="1"><TextBlock Text="Card 10" /></Border>
-            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="2" Grid.Column="2"><TextBlock Text="Card 11" /></Border>
-            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="2" Grid.Column="3"><TextBlock Text="Card 12" /></Border>
+            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="2" Grid.Column="1"><TextBlock Text="Card 8" /></Border>
+            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="2" Grid.Column="2"><TextBlock Text="Card 9" /></Border>
+            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="3" Grid.Column="0"><TextBlock Text="Card 10" /></Border>
+            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="3" Grid.Column="1"><TextBlock Text="Card 11" /></Border>
+            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="3" Grid.Column="2"><TextBlock Text="Card 12" /></Border>
         </Grid>
     </ScrollViewer>
 </Page>
