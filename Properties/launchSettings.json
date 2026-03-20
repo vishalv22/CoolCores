@@ -1,10 +1,10 @@
 {
   "profiles": {
-    "CoolCores (Package)": {
-      "commandName": "MsixPackage"
-    },
     "CoolCores (Unpackaged)": {
       "commandName": "Project"
+    },
+    "CoolCores (Package)": {
+      "commandName": "MsixPackage"
     }
   }
 }
