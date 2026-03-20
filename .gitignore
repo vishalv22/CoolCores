@@ -1,0 +1,19 @@
+# Build output
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+.vs/
+
+# NuGet
+*.nupkg
+packages/
+
+# Publish profiles (optional: remove if you want to track these)
+Properties/PublishProfiles/
+
+# AppX package output
+AppPackages/
+BundleArtifacts/
