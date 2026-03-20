@@ -39,6 +39,7 @@ namespace CoolCores
             }
 
             AppWindowTitleBar titleBar = AppWindow.TitleBar;
+
             Color darkBackground = Color.FromArgb(255, 0, 0, 0);
             Color hoverBackground = Color.FromArgb(255, 42, 42, 42);
             Color pressedBackground = Color.FromArgb(255, 60, 60, 60);

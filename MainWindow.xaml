@@ -9,6 +9,7 @@
     <NavigationView PaneDisplayMode="Left"
                     IsBackButtonVisible="Collapsed"
                     IsSettingsVisible="True"
+                    OpenPaneLength="192"
                     PaneTitle="CoolCores">
         <NavigationView.MenuItems>
             <NavigationViewItem Content="System">
