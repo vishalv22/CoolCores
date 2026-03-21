@@ -9,8 +9,8 @@
         <Style x:Key="SystemCardStyle" TargetType="Border">
             <Setter Property="Background" Value="#FF1F1F1F" />
             <Setter Property="CornerRadius" Value="10" />
-            <Setter Property="Padding" Value="16" />
-            <Setter Property="MinHeight" Value="120" />
+            <Setter Property="Padding" Value="14" />
+            <Setter Property="MinHeight" Value="134.4" />
         </Style>
     </Page.Resources>
 
@@ -31,7 +31,12 @@
             </Grid.RowDefinitions>
 
             <Border Style="{StaticResource SystemCardStyle}" Grid.Row="0" Grid.Column="0">
-                <StackPanel Spacing="12">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
                     <StackPanel Orientation="Horizontal" Spacing="8">
                         <FontIcon Glyph="&#xE950;" />
                         <TextBlock Text="Processor"
@@ -39,18 +44,224 @@
                                    FontWeight="Normal" />
                     </StackPanel>
                     <TextBlock x:Name="ProcessorNameTextBlock"
+                               Grid.Row="1"
                                Text="Loading..."
                                TextWrapping="WrapWholeWords"
+                               Margin="0,8,0,0"
+                               VerticalAlignment="Top"
                                Foreground="#FFD1D1D1" />
-                </StackPanel>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="UsageStatsTextBlock"
+                                   Grid.Column="1"
+                                   Text="--% (--GHz)"
+                                   HorizontalAlignment="Right"
+                                   Foreground="#FFD1D1D1" />
+                    </Grid>
+                </Grid>
             </Border>
-            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="0" Grid.Column="1"><TextBlock Text="Card 2" /></Border>
-            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="0" Grid.Column="2"><TextBlock Text="Card 3" /></Border>
-            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="1" Grid.Column="0"><TextBlock Text="Card 4" /></Border>
+            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="0" Grid.Column="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE964;" />
+                        <TextBlock Text="Memory"
+                                   FontSize="16"
+                                   FontWeight="Normal" />
+                    </StackPanel>
+                    <TextBlock x:Name="MemorySummaryTextBlock"
+                               Grid.Row="1"
+                               Text="Loading..."
+                               TextWrapping="WrapWholeWords"
+                               Margin="0,8,0,0"
+                               VerticalAlignment="Top"
+                               Foreground="#FFD1D1D1" />
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="MemoryUsageStatsTextBlock"
+                                   Grid.Column="1"
+                                   Text="--% (--/--GB)"
+                                   HorizontalAlignment="Right"
+                                   Foreground="#FFD1D1D1" />
+                    </Grid>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="0" Grid.Column="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xEDA2;" />
+                        <TextBlock Text="Storage"
+                                   FontSize="16"
+                                   FontWeight="Normal" />
+                    </StackPanel>
+                    <TextBlock x:Name="StorageSummaryTextBlock"
+                               Grid.Row="1"
+                               Text="Loading..."
+                               TextWrapping="WrapWholeWords"
+                               Margin="0,8,0,0"
+                               VerticalAlignment="Top"
+                               Foreground="#FFD1D1D1" />
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="StorageUsageStatsTextBlock"
+                                   Grid.Column="1"
+                                   Text="--% (--/--GB)"
+                                   HorizontalAlignment="Right"
+                                   Foreground="#FFD1D1D1" />
+                    </Grid>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="1" Grid.Column="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xEDA3;" />
+                        <TextBlock Text="Graphics"
+                                   FontSize="16"
+                                   FontWeight="Normal" />
+                    </StackPanel>
+                    <TextBlock x:Name="GraphicsSummaryTextBlock"
+                               Grid.Row="1"
+                               Text="Loading..."
+                               TextWrapping="WrapWholeWords"
+                               Margin="0,8,0,0"
+                               VerticalAlignment="Top"
+                               Foreground="#FFD1D1D1" />
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="GraphicsStatsTextBlock"
+                                   Grid.Column="1"
+                                   Text="--"
+                                   HorizontalAlignment="Right"
+                                   Foreground="#FFD1D1D1" />
+                    </Grid>
+                </Grid>
+            </Border>
 
-            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="1" Grid.Column="1"><TextBlock Text="Card 5" /></Border>
-            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="1" Grid.Column="2"><TextBlock Text="Card 6" /></Border>
-            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="2" Grid.Column="0"><TextBlock Text="Card 7" /></Border>
+            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="1" Grid.Column="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xEA86;" />
+                        <TextBlock Text="Services"
+                                   FontSize="16"
+                                   FontWeight="Normal" />
+                    </StackPanel>
+                    <TextBlock x:Name="ServicesSummaryTextBlock"
+                               Grid.Row="1"
+                               Text="Loading..."
+                               TextWrapping="WrapWholeWords"
+                               Margin="0,8,0,0"
+                               VerticalAlignment="Top"
+                               Foreground="#FFD1D1D1" />
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="ServicesStatsTextBlock"
+                                   Grid.Column="1"
+                                   Text="--"
+                                   HorizontalAlignment="Right"
+                                   Foreground="#FFD1D1D1" />
+                    </Grid>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="1" Grid.Column="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xECAA;" />
+                        <TextBlock Text="Apps"
+                                   FontSize="16"
+                                   FontWeight="Normal" />
+                    </StackPanel>
+                    <TextBlock x:Name="AppsSummaryTextBlock"
+                               Grid.Row="1"
+                               Text="Loading..."
+                               TextWrapping="WrapWholeWords"
+                               Margin="0,8,0,0"
+                               VerticalAlignment="Top"
+                               Foreground="#FFD1D1D1" />
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="AppsStatsTextBlock"
+                                   Grid.Column="1"
+                                   Text="--"
+                                   HorizontalAlignment="Right"
+                                   Foreground="#FFD1D1D1" />
+                    </Grid>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource SystemCardStyle}" Grid.Row="2" Grid.Column="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE850;" />
+                        <TextBlock Text="Battery"
+                                   FontSize="16"
+                                   FontWeight="Normal" />
+                    </StackPanel>
+                    <TextBlock x:Name="BatterySummaryTextBlock"
+                               Grid.Row="1"
+                               Text="Loading..."
+                               TextWrapping="WrapWholeWords"
+                               Margin="0,8,0,0"
+                               VerticalAlignment="Top"
+                               Foreground="#FFD1D1D1" />
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="BatteryStatsTextBlock"
+                                   Grid.Column="1"
+                                   Text="--"
+                                   HorizontalAlignment="Right"
+                                   Foreground="#FFD1D1D1" />
+                    </Grid>
+                </Grid>
+            </Border>
 
             <Border Style="{StaticResource SystemCardStyle}" Grid.Row="2" Grid.Column="1"><TextBlock Text="Card 8" /></Border>
             <Border Style="{StaticResource SystemCardStyle}" Grid.Row="2" Grid.Column="2"><TextBlock Text="Card 9" /></Border>
